@@ -31,17 +31,17 @@ export default function ControlPanel({ onGeneratedAvatar, setIsGenerating }: Con
   const [activeStyle, setActiveStyle] = useState('photoreal');
 
   return (
-    <div className="flex h-full flex-col gap-6">
+    <div className="flex h-full flex-col gap-6 animate-fade-in">
       <Tabs defaultValue="styles" className="w-full">
-        <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="styles">Styles</TabsTrigger>
-          <TabsTrigger value="presets">Presets</TabsTrigger>
-          <TabsTrigger value="mixer">Mixer</TabsTrigger>
-          <TabsTrigger value="brand">Brand</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-4 glass-card border-2 border-white/30 p-1.5">
+          <TabsTrigger value="styles" className="font-light data-[state=active]:bg-white/70 data-[state=active]:shadow-lg transition-all duration-300">Styles</TabsTrigger>
+          <TabsTrigger value="presets" className="font-light data-[state=active]:bg-white/70 data-[state=active]:shadow-lg transition-all duration-300">Presets</TabsTrigger>
+          <TabsTrigger value="mixer" className="font-light data-[state=active]:bg-white/70 data-[state=active]:shadow-lg transition-all duration-300">Mixer</TabsTrigger>
+          <TabsTrigger value="brand" className="font-light data-[state=active]:bg-white/70 data-[state=active]:shadow-lg transition-all duration-300">Brand</TabsTrigger>
         </TabsList>
 
         <TabsContent value="styles" className="mt-6">
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-3 gap-4">
             {AVATAR_STYLES.map((style) => (
               <TooltipProvider key={style.id}>
                 <Tooltip>
@@ -49,18 +49,18 @@ export default function ControlPanel({ onGeneratedAvatar, setIsGenerating }: Con
                     <button
                       onClick={() => setActiveStyle(style.id)}
                       className={cn(
-                        'flex flex-col items-center justify-center gap-2 rounded-lg border p-4 text-sm font-medium transition-all hover:bg-secondary',
+                        'flex flex-col items-center justify-center gap-3 rounded-2xl border-2 p-5 text-sm font-light transition-all duration-300 hover:bg-white/50 hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-1',
                         activeStyle === style.id
-                          ? 'border-primary ring-2 ring-primary ring-offset-2 ring-offset-background'
-                          : 'border-border'
+                          ? 'border-lavender ring-2 ring-lavender ring-offset-2 ring-offset-background bg-white/60 shadow-xl shadow-purple-500/30'
+                          : 'border-white/30 bg-white/30 backdrop-blur-lg'
                       )}
                     >
-                      <style.icon className="h-6 w-6" />
-                      <span>{style.name}</span>
+                      <style.icon className="h-7 w-7 text-lavender" />
+                      <span className="font-medium">{style.name}</span>
                     </button>
                   </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{style.name} Style</p>
+                  <TooltipContent className="glass border-white/30">
+                    <p className="font-light">{style.name} Style</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -73,15 +73,15 @@ export default function ControlPanel({ onGeneratedAvatar, setIsGenerating }: Con
             {PRESETS.map((preset) => {
               const presetImage = PlaceHolderImages.find(p => p.id === `preset-${preset.id}`)
               return (
-              <Card key={preset.id} className="cursor-pointer transition-all hover:shadow-md">
-                <CardContent className="flex items-center gap-4 p-4">
-                  {presetImage && <Image src={presetImage.imageUrl} alt={preset.name} width={60} height={60} className="rounded-md" data-ai-hint={presetImage.imageHint} />}
+              <Card key={preset.id} className="cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-1 hover:scale-[1.02]">
+                <CardContent className="flex items-center gap-4 p-5">
+                  {presetImage && <Image src={presetImage.imageUrl} alt={preset.name} width={60} height={60} className="rounded-xl shadow-lg" data-ai-hint={presetImage.imageHint} />}
                   <div className="flex flex-col">
                     <div className="flex items-center gap-2">
-                      <preset.icon className="h-4 w-4 text-muted-foreground" />
-                      <h3 className="font-semibold">{preset.name}</h3>
+                      <preset.icon className="h-4 w-4 text-lavender" />
+                      <h3 className="font-medium">{preset.name}</h3>
                     </div>
-                    <p className="text-xs text-muted-foreground">{preset.hint}</p>
+                    <p className="text-xs text-foreground/60 font-light">{preset.hint}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -98,8 +98,8 @@ export default function ControlPanel({ onGeneratedAvatar, setIsGenerating }: Con
         </TabsContent>
       </Tabs>
 
-      <Card>
-        <CardContent className="p-4">
+      <Card className="glass-card border-2 border-white/40">
+        <CardContent className="p-6">
           <Accordion type="multiple" defaultValue={['face']} className="w-full">
             {CUSTOMIZATION_ACCORDION.map((category) => (
               <AccordionItem key={category.id} value={category.id}>

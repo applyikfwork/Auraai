@@ -87,64 +87,66 @@ export default function PreviewPanel({ previewImage, isGenerating }: PreviewPane
   };
 
   return (
-    <div className="sticky top-24 flex h-full flex-col gap-6">
-      <Card className="flex-1">
-        <CardContent className="relative aspect-square w-full p-4">
+    <div className="sticky top-24 flex h-full flex-col gap-6 animate-fade-in">
+      <Card className="flex-1 glass-card border-2 border-white/40 overflow-hidden">
+        <CardContent className="relative aspect-square w-full p-6">
           {isGenerating ? (
-            <div className="flex h-full w-full items-center justify-center rounded-lg bg-muted">
+            <div className="flex h-full w-full items-center justify-center rounded-2xl neuro-inset">
               <div className="flex flex-col items-center gap-4">
-                <Loader2 className="h-12 w-12 animate-spin text-primary" />
-                <p className="text-muted-foreground">Generating your masterpiece...</p>
+                <Loader2 className="h-16 w-16 animate-spin text-lavender" />
+                <p className="text-foreground/70 font-light">Generating your masterpiece...</p>
               </div>
             </div>
           ) : (
-            <Image
-              src={selectedGalleryImage || previewImage}
-              alt="Avatar preview"
-              fill
-              className="rounded-lg object-cover"
-              data-ai-hint="avatar preview"
-              key={selectedGalleryImage || previewImage}
-            />
+            <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-2xl shadow-purple-500/20 float">
+              <Image
+                src={selectedGalleryImage || previewImage}
+                alt="Avatar preview"
+                fill
+                className="rounded-2xl object-cover"
+                data-ai-hint="avatar preview"
+                key={selectedGalleryImage || previewImage}
+              />
+            </div>
           )}
 
-          <div className="absolute bottom-6 right-6 flex items-center gap-2">
-            <Button variant="secondary" size="icon" className="h-11 w-11 rounded-full shadow-lg">
+          <div className="absolute bottom-8 right-8 flex items-center gap-3">
+            <Button variant="secondary" size="icon" className="h-12 w-12 rounded-full shadow-xl backdrop-blur-xl">
               <RefreshCw className="h-5 w-5" />
             </Button>
-            <Button variant="secondary" size="icon" className="h-11 w-11 rounded-full shadow-lg">
+            <Button variant="secondary" size="icon" className="h-12 w-12 rounded-full shadow-xl backdrop-blur-xl">
               <ZoomIn className="h-5 w-5" />
             </Button>
           </div>
         </CardContent>
       </Card>
 
-      <div className="flex items-center gap-2">
-        <Button variant="outline" className="flex-1" onClick={handleSaveToGallery} disabled={isSaving}>
+      <div className="flex items-center gap-3 animate-slide-up">
+        <Button variant="outline" className="flex-1 font-light" onClick={handleSaveToGallery} disabled={isSaving}>
           {isSaving ? (
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
           ) : (
             <Heart className="mr-2 h-4 w-4" />
           )}
-          Save to Gallery
+          Save
         </Button>
-        <Button variant="outline" className="flex-1">
+        <Button variant="outline" className="flex-1 font-light">
           <Share2 className="mr-2 h-4 w-4" /> Share
         </Button>
-        <Button className="flex-1">
+        <Button className="flex-1 font-medium">
           <Download className="mr-2 h-4 w-4" /> Download
         </Button>
       </div>
 
-      <Card>
+      <Card className="glass-card border-2 border-white/40 animate-slide-up">
         <CardHeader>
-          <CardTitle>My Gallery</CardTitle>
+          <CardTitle className="font-light text-xl gradient-text">My Gallery</CardTitle>
         </CardHeader>
         <CardContent>
           {!user ? (
-            <div className="text-center text-sm text-muted-foreground">
+            <div className="text-center text-sm text-foreground/60 font-light">
               <p>
-                <Link href="/login" className="text-primary underline">
+                <Link href="/login" className="gradient-text font-medium underline">
                   Sign in
                 </Link>{' '}
                 to view your personal gallery.
@@ -157,8 +159,8 @@ export default function PreviewPanel({ previewImage, isGenerating }: PreviewPane
                   key={image.id}
                   onClick={() => setSelectedGalleryImage(image.imageUrl)}
                   className={cn(
-                    'relative aspect-square cursor-pointer overflow-hidden rounded-lg transition-all hover:scale-105',
-                    (selectedGalleryImage || previewImage) === image.imageUrl && 'ring-2 ring-primary ring-offset-2 ring-offset-background'
+                    'relative aspect-square cursor-pointer overflow-hidden rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/30',
+                    (selectedGalleryImage || previewImage) === image.imageUrl && 'ring-2 ring-lavender ring-offset-2 ring-offset-background shadow-xl shadow-purple-500/40'
                   )}
                 >
                   <Image
@@ -170,7 +172,7 @@ export default function PreviewPanel({ previewImage, isGenerating }: PreviewPane
                 </div>
               ))}
                {galleryImages.length === 0 && (
-                <p className="col-span-full text-center text-sm text-muted-foreground">Your saved avatars will appear here.</p>
+                <p className="col-span-full text-center text-sm text-foreground/50 font-light">Your saved avatars will appear here.</p>
                )}
             </div>
           )}
