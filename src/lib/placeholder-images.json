@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "avatar-preview-1",
+      "description": "Default avatar preview",
+      "imageUrl": "https://images.unsplash.com/photo-1614283233556-f35b0c801ef1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2MTgwMzQ2MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "gallery-1",
+      "description": "Gallery image 1 - anime style",
+      "imageUrl": "https://images.unsplash.com/photo-1708034677699-6f39d9c59f6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhbmltZSUyMGdpcmx8ZW58MHx8fHwxNzYxODA4OTg3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "anime girl"
+    },
+    {
+      "id": "gallery-2",
+      "description": "Gallery image 2 - photoreal style",
+      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjE3NTYzNjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "gallery-3",
+      "description": "Gallery image 3 - cyberpunk style",
+      "imageUrl": "https://images.unsplash.com/photo-1514439827219-9137a0b99245?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjeWJlcnB1bmslMjBjaXR5fGVufDB8fHx8MTc2MTcyMTg1M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cyberpunk city"
+    },
+    {
+      "id": "gallery-4",
+      "description": "Gallery image 4 - vector style",
+      "imageUrl": "https://images.unsplash.com/photo-1649783465020-1e0c6f9ced0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dmVjdG9yJTIwaWxsdXN0cmF0aW9ufGVufDB8fHx8MTc2MTgyOTU5NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vector illustration"
+    },
+    {
+      "id": "preset-social",
+      "description": "Social profile preset image",
+      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwwfHx8fDE3NjE3ODM0OTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional headshot"
+    },
+    {
+      "id": "preset-streaming",
+      "description": "Streaming preset image",
+      "imageUrl": "https://images.unsplash.com/photo-1735924576411-fccdcff06ffd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z2FtZXIlMjBjaGFyYWN0ZXJ8ZW58MHx8fHwxNzYxNzgxOTQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gamer character"
+    },
+    {
+      "id": "preset-corporate",
+      "description": "Corporate preset image",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHBlcnNvbnxlbnwwfHx8fDE3NjE4MTkwNjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "business person"
+    }
+  ]
 }
