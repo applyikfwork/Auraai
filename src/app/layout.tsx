@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import './globals.css';
+import { AuthProvider } from '@/lib/firebase/auth';
 
 export const metadata: Metadata = {
   title: 'Aura — Create Photoreal & Stylized Avatars Instantly',
@@ -25,7 +26,9 @@ export default function RootLayout({
         />
       </head>
       <body className={cn('font-body antialiased', 'min-h-screen bg-background font-sans')}>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
         <Toaster />
       </body>
     </html>
